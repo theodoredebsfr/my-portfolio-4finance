@@ -1,0 +1,16 @@
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aquamarine;
+  height: 52px;
+  padding: 10px 5%;
+  position: fixed;
+  width: 90vw;
+  bottom: 0;
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
