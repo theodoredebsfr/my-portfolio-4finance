@@ -1,39 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
 import Footer from "../../layout/footer/Footer";
 import Card from "../../components/card/Card";
 import Header from "../../layout/header/Header";
-import { Button } from "@mui/material";
+import { ArrayOfNumbers, People, devs } from "../../utils/dummyData";
 
 const Home = () => {
-  const [persons, setPersons] = useState(
-    [
-      {
-        id: 1,
-        name: "Jane",
-        lastName: "Doe",
-        age: 36,
-      },
-      {
-        id: 2,
-        name: "John",
-        lastName: "DoeDoe",
-        age: 44,
-        cloths: { jacket: "purple" },
-      },
-      {
-        id: 3,
-        name: "Joe",
-        lastName: "ThirdLastName",
-        age: 60,
-        cloths: { jacket: "red" },
-      },
-    ] //array
-  );
+  const devsWithId = devs.map((element, index) => {
+    return { ...element, id: index + 1 };
+  });
+
+  const filterYoungDevs = devs.filter((element) => {
+    return element.age < 34;
+  }); //array
+
+  const findSpecificDevInfo = devs.find((element) => {
+    return element.age === 43;
+  }); //element
+
+  const findSpecificDevIndex = devs.findIndex((element) => {
+    return element.name === "James";
+  });
+
+  const isManager = devs.some((element) => {
+    return element.role === "manager";
+  });
+  const isAnyFrontend = devs.some((element) => {
+    return element.role.toLowerCase() === "frontend";
+  });
+  const isPositive = ArrayOfNumbers.every((element) => {
+    return element > 0;
+  });
+  console.log("isPositive :>> ", isPositive);
   return (
     <>
       <Header />
       <main className="app-main">
-        {persons.map((person) => (
+        {"fRoNtEnd".toLowerCase()}
+        {/* {JSON.stringify("fRoNtEnd".toLowerCase())} */}
+        {/* {People.map((person) => (
           <>
             <Card
               id={person?.id}
@@ -54,7 +58,7 @@ const Home = () => {
           color={"gray"}
           likeSports
           onClick={() => alert("4")}
-        />
+        /> */}
       </main>
       <Footer />
     </>
