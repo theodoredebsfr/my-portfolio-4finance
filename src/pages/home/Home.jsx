@@ -30,12 +30,18 @@ const Home = () => {
   const isPositive = ArrayOfNumbers.every((element) => {
     return element > 0;
   });
-  console.log("isPositive :>> ", isPositive);
+
   return (
     <>
       <Header />
       <main className="app-main">
-        {"fRoNtEnd".toLowerCase()}
+        To do:
+        <br /> 1- return all the devs (dummy data) who have the role of Frontend
+        and there age are more than 30 y/o <br />
+        2- in ArrayOfNumbers (dummy data): return only positive numbers and then
+        return a new array who has there elements multiplied by 3.
+        <br /> 3- in devsArrayofString (dummy data): return only the names who
+        have 6 characters and more
         {/* {JSON.stringify("fRoNtEnd".toLowerCase())} */}
         {/* {People.map((person) => (
           <>
