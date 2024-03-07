@@ -1,13 +1,7 @@
 import React from "react";
-import Header from "../../layout/header/Header";
 
 const Blogs = () => {
-  return (
-    <div>
-      <Header />
-      Blogs
-    </div>
-  );
+  return <div>Blogs</div>;
 };
 
 export default Blogs;

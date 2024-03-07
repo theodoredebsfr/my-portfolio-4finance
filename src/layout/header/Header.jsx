@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.scss";
 
 const Links = [
@@ -8,16 +8,20 @@ const Links = [
   { to: "/contact-us", label: "Home" },
   { to: "/counter", label: "Counter" },
 ];
-
 const Header = () => {
   return (
     <header className="app-header">
-      <div>LOGO </div>
+      <div>LOGO</div>
       <nav>
         <ul>
           {Links.map((link) => (
             <li key={link.to}>
-              <Link to={link.to}>{link.label}</Link>
+              <NavLink
+                to={link.to}
+                className={({ isActive }) => (isActive ? "active" : "disabled")}
+              >
+                {link.label}
+              </NavLink>
             </li>
           ))}
         </ul>
