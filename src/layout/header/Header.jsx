@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.scss";
 
 const Links = [
@@ -7,13 +7,14 @@ const Links = [
   { to: "/blogs", label: "Blogs" },
   { to: "/contact-us", label: "Home" },
   { to: "/counter", label: "Counter" },
+  { to: "/investment-calculator", label: "Investment Calculator" },
 ];
 const Header = () => {
   return (
     <header className="app-header">
       <div>LOGO</div>
       <nav>
-        <ul>
+        <menu>
           {Links.map((link) => (
             <li key={link.to}>
               <NavLink
@@ -24,7 +25,7 @@ const Header = () => {
               </NavLink>
             </li>
           ))}
-        </ul>
+        </menu>
       </nav>
       <div>Sign out</div>
     </header>

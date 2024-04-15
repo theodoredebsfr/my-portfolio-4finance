@@ -8,10 +8,12 @@ import Counter from "./pages/counter/Counter";
 import RootLayout from "./layout/rootLayout/RootLayout";
 import AboutUs from "./pages/about-us/AboutUs";
 import BlogDetails from "./pages/blogs/blogDetails/BlogDetails";
+import InvestmentCalculator from "./pages/investment-calculator/InvestmentCalculator";
 
 const MainRoutes = () => {
   return (
     <Routes>
+      <Route path="investment-calculator" element={<InvestmentCalculator />} />
       <Route element={<RootLayout />}>
         <Route path="" element={<Home />} />
         <Route path="blogs" element={<Blogs />} />
