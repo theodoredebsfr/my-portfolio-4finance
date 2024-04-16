@@ -1,12 +1,11 @@
 import React from "react";
 import Card from "../../components/card/Card";
-import { People } from "../../utils/dummyData";
+import { IDs } from "../../utils/dummyData";
 import "./Home.scss";
 const Home = () => {
   return (
     <div className="home">
-      
-      {People.map((person) => (
+      {IDs.map((person) => (
         <>
           <Card
             id={person?.id}

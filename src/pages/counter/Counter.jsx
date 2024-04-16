@@ -6,10 +6,11 @@ const Counter = () => {
   const [value, setValue] = useState(5);
 
   const [color, setColor] = useState("blue");
-  const increaseHandler = () => setValue(value + 1);
-  const increase10TimesHandler = () => setValue(value + 10);
+  const increaseHandler = () => setValue((previousValue) => previousValue + 1);
+  const increase10TimesHandler = () =>
+    setValue((previousValue) => previousValue + 10);
   const decreaseHandler = () => {
-    setValue(value - 1);
+    setValue((previousValue) => previousValue - 1);
   };
   const inputHandler = (event) => {
     setValue(+event.target.value);

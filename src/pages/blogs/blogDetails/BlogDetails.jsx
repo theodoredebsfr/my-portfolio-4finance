@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { People } from "../../../utils/dummyData";
+import { IDs } from "../../../utils/dummyData";
 import Card from "../../../components/card/Card";
 
 const BlogDetails = () => {
   const params = useParams();
   const { blog_id } = params;
-  const filteredUser = People.filter((el) => el.id === +blog_id);
+  const filteredUser = IDs.filter((el) => el.id === +blog_id);
   return (
     <div>
       {filteredUser.length ? (

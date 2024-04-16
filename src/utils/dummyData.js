@@ -13,7 +13,7 @@ export const ArrayOfRandomNumbers = Array.from({ length: 40 }, () =>
   Math.floor(Math.random() * 40)
 );
 export const ArrayOfNumbers = [22, -6, 1, 99, 97, 50, 15, 3, 18, 6, 80, 20]; // array of intergers
-export const People = [
+export const IDs = [
   { id: 1, name: "Jane", lastName: "Doe", age: 36 },
   {
     id: 2,

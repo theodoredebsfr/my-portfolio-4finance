@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./InvestmentCalculator.scss";
 import InvestmentHeader from "../../layout/investmentHeader/InvestmentHeader";
 import UserInputs from "../../components/userInputs/UserInputs";
+import Results from "../../components/results/Results";
 
 function InvestmentCalculator() {
   return (
@@ -12,6 +13,7 @@ function InvestmentCalculator() {
       </Button>
       <InvestmentHeader />
       <UserInputs />
+      <Results />
     </div>
   );
 }
