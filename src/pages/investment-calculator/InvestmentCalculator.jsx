@@ -13,13 +13,15 @@ function InvestmentCalculator() {
     expectedReturn: 6,
     duration: 10,
   });
+
   const changeHandler = (event, inputIdentifier) => {
     setUserInput((prev) => ({
       ...prev,
       [inputIdentifier]: +event.target.value,
     }));
   };
-  console.log("userInput :>> ", userInput);
+  const isInputValid = userInput.duration >= 1;
+
   return (
     <div className="InvestmentCalculator">
       <Button component={Link} to="/">
@@ -27,7 +29,11 @@ function InvestmentCalculator() {
       </Button>
       <InvestmentHeader />
       <UserInputs userInput={userInput} onChange={changeHandler} />
-      <Results userInput={userInput} />
+      {isInputValid ? (
+        <Results userInput={userInput} />
+      ) : (
+        <p className="center">Please enter a duration greater than zero.</p>
+      )}
     </div>
   );
 }
