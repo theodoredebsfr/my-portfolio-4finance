@@ -11,7 +11,7 @@ const RootLayout = (props) => {
       <main className="app-main">
         <Outlet />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

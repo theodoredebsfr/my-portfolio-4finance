@@ -1,17 +1,18 @@
 import React from "react";
 import "./BlogCard.scss";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 const BlogCard = (props) => {
-  const { title, content } = props;
-  //   id: 1,
-  // title: "Getting Started with Web Development",
-  // author: "John Doe",
-  // date: "2024-03-07",
-  // content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  // tags: ["Web Development", "HTML", "CSS", "JavaScript"],
+  const { title, content, id, buttonEnabled = true } = props;
   return (
     <div className="blogCard">
       <h2>{title}</h2>
       <p>{content}</p>
+      {buttonEnabled ? (
+        <Button component={Link} to={"/blog-details/" + String(id)}>
+          See more
+        </Button>
+      ) : null}
     </div>
   );
 };

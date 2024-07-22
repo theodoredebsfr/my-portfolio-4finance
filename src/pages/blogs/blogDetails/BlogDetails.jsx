@@ -1,29 +1,41 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { People } from "../../../utils/dummyData";
-import Card from "../../../components/card/Card";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import BlogCard from "../../../components/blogCard/BlogCard";
+import { Button } from "@mui/material";
 
 const BlogDetails = () => {
   const params = useParams();
   const { blog_id } = params;
-  const filteredUser = People.filter((el) => el.id === +blog_id);
+  const [post, setPost] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    const getPostById = () => {
+      axios
+        .get(`https://jsonplaceholder.typicode.com/posts/${blog_id}`)
+        .then((res) => setPost(res.data)) //✅ feedback
+        .catch(() => setError(true)) //❌ feedback
+        .finally(() => setLoading(false));
+    };
+    getPostById();
+  }, [blog_id]);
+  if (loading) return <>Loading...</>;
   return (
     <div>
-      {filteredUser.length ? (
-        filteredUser.map((person) => (
-          <>
-            <Card
-              id={person?.id}
-              firstName={person?.name}
-              lastName={person?.lastName}
-              age={person?.age}
-              color={person?.cloths?.jacket}
-              likeSports
-            />
-          </>
-        ))
+      <Button component={Link} variant="outlined" to={"/blogs"}>
+        Back
+      </Button>
+      {!error ? (
+        <BlogCard
+          title={post.title}
+          content={post.body}
+          id={post.id}
+          buttonEnabled={false}
+        />
       ) : (
-        <h1>No User Found, Try different param </h1>
+        <h1>404 not found, this page could be removed, Try again later</h1>
       )}
     </div>
   );
