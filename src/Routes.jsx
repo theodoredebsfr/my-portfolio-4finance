@@ -8,6 +8,7 @@ import Counter from "./pages/counter/Counter";
 import RootLayout from "./layout/rootLayout/RootLayout";
 import AboutUs from "./pages/about-us/AboutUs";
 import BlogDetails from "./pages/blogs/blogDetails/BlogDetails";
+import Todos from "./pages/todos/Todos";
 
 const MainRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const MainRoutes = () => {
         <Route path="contact-us" element={<Contact />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="counter" element={<Counter />} />
+        <Route path="todos" element={<Todos />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
